@@ -22,4 +22,5 @@ public class Profissional {
 
     @JsonProperty("data_nascimento")
     private String dataNascimento;
+
 }
