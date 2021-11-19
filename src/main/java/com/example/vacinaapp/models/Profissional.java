@@ -13,7 +13,7 @@ public class Profissional {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
 
     private String nome;
 
