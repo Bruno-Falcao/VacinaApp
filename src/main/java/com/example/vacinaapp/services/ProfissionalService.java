@@ -1,9 +1,7 @@
 package com.example.vacinaapp.services;
 
 import com.example.vacinaapp.models.Profissional;
-import com.example.vacinaapp.models.Vacina;
 import com.example.vacinaapp.repositories.ProfissionalRepository;
-import com.example.vacinaapp.repositories.VacinaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

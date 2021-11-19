@@ -17,7 +17,7 @@ public class Profissional {
 
     private String nome;
 
-    @JsonProperty("coren_Crm")
+    @JsonProperty("coren_crm")
     private String corenCrm;
 
     @JsonProperty("data_nascimento")

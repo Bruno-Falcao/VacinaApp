@@ -15,17 +15,18 @@ public class Vacinacao {
     @GeneratedValue
     private Integer id;
 
-    private String vacinacao;
+    @JsonProperty("vacinacao_data")
+    private String vacinacaoData;
 
     @JsonProperty("proxima_vacinacao")
     private String proximaVacinacao;
 
     @JsonProperty("id_vacina")
-    private String idVacina;
+    private Integer idVacina;
 
     @JsonProperty("id_profissional")
-    private String idProfissional;
+    private Integer idProfissional;
 
     @JsonProperty("id_paciente")
-    private String idPaciente;
+    private Integer idPaciente;
 }
