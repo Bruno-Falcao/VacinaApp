@@ -13,11 +13,11 @@ public class Organigacao {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
 
     private String cnpj;
 
-    @JsonProperty(namespace = "nome_fantasia")
+    @JsonProperty("nome_fantasia")
     private String nomeFantasia;
 
     private String identificacao;
