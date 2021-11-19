@@ -1,53 +1,54 @@
 package com.example.vacinaapp.controllers;
 
+import com.example.vacinaapp.models.Profissional;
 import com.example.vacinaapp.models.Vacina;
+import com.example.vacinaapp.services.ProfissionalService;
 import com.example.vacinaapp.services.VacinaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("vacina")
-public class VacinaController {
-
+@RequestMapping("profissional")
+public class ProfissionalController {
     @Autowired
-    private VacinaService vacinaService;
+    private ProfissionalService profissionalService;
 
-    @PostMapping("/cadastra")
-    public ResponseEntity salvaVacina(@RequestBody Vacina vacina) {
+    @PostMapping("/cadastrar")
+    public ResponseEntity salvaVacina(@RequestBody Profissional profissional) {
         try {
-            return vacinaService.salvaVacina(vacina);
+            return profissionalService.salvaProfissional(profissional);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @PutMapping("/cadastra")
-    public ResponseEntity alteraVacina(@RequestBody Vacina vacina) {
+    @PutMapping("/cadastrar")
+    public ResponseEntity alteraVacina(@RequestBody Profissional profissional) {
         try {
-            return vacinaService.salvaVacina(vacina);
+            return profissionalService.salvaProfissional(profissional);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @GetMapping("busca-vacina")
+    @GetMapping("busca-profissional")
     public ResponseEntity pegaVacinas(@RequestParam(required = false) Integer id) {
         try {
             if (id != null) {
-                return vacinaService.buscaVacinaPorId(id);
+                return profissionalService.buscaProfissionalPorId(id);
             }
-            return vacinaService.buscaTodasVacinas();
+            return profissionalService.buscaTodosProfissionais();
 
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity deletaVacina(@RequestBody Vacina vacina) {
+    @DeleteMapping("/deleta-profissional")
+    public ResponseEntity deletaVacina(@RequestBody Profissional profissional) {
         try {
-            return vacinaService.deletaVacina(vacina);
+            return profissionalService.deletaProfissional(profissional);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
