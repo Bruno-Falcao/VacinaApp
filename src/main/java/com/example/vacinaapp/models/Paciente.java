@@ -13,7 +13,7 @@ public class Paciente {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
 
     private String nome;
 
