@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/vacina_app
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+    hikari:
+      idle-timeout: 10000
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+
+
+
+
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    hikari:
+#      jdbc-url: jdbc:mysql://localhost:3306/vacina_app
+#      username: root
+#      password: admin
