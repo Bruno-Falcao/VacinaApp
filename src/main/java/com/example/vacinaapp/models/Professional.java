@@ -8,19 +8,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
-@Entity(name = "profissional")
-public class Profissional {
+@Entity(name = "professional")
+public class Professional {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    private String nome;
+    private String name;
 
     @JsonProperty("coren_crm")
     private String corenCrm;
 
-    @JsonProperty("data_nascimento")
-    private String dataNascimento;
+    @JsonProperty("birth_date")
+    private String birthDate;
 
 }

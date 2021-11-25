@@ -8,17 +8,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
-@Entity(name = "paciente")
-public class Paciente {
+@Entity(name = "patient")
+public class Patient {
 
     @Id
     @GeneratedValue
     private Integer id;
 
-    private String nome;
+    private String name;
 
-    @JsonProperty("data_nascimento")
-    private String dataNascimento;
+    @JsonProperty("birth_date")
+    private String birthDate;
 
     private String cpf;
 }

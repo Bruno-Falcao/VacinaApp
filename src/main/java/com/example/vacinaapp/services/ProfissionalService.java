@@ -1,7 +1,7 @@
 package com.example.vacinaapp.services;
 
-import com.example.vacinaapp.models.Profissional;
-import com.example.vacinaapp.repositories.ProfissionalRepository;
+import com.example.vacinaapp.models.Professional;
+import com.example.vacinaapp.repositories.ProfessionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -10,18 +10,18 @@ import org.springframework.stereotype.Service;
 public class ProfissionalService {
 
     @Autowired
-    private ProfissionalRepository profissionalRepository;
+    private ProfessionalRepository profissionalRepository;
 
 
-    public ResponseEntity salvaProfissional(Profissional profissional) {
+    public ResponseEntity updateProfessional(Professional professional) {
         try {
-            return ResponseEntity.ok().body(profissionalRepository.save(profissional));
+            return ResponseEntity.ok().body(profissionalRepository.save(professional));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity buscaTodosProfissionais() {
+    public ResponseEntity findAllProfessionals() {
         try {
             return ResponseEntity.ok().body(profissionalRepository.findAll());
         } catch (Exception ex) {
@@ -29,7 +29,7 @@ public class ProfissionalService {
         }
     }
 
-    public ResponseEntity buscaProfissionalPorId(Integer id) {
+    public ResponseEntity findProfessionalById(Integer id) {
         try {
             return ResponseEntity.ok().body(profissionalRepository.findById(id));
         } catch (Exception ex) {
@@ -37,11 +37,11 @@ public class ProfissionalService {
         }
     }
 
-    public ResponseEntity deletaProfissional(Profissional profissional) {
+    public ResponseEntity deleteProfessional(Professional professional) {
         try {
-            profissionalRepository.delete(profissional);
+            profissionalRepository.delete(professional);
 
-            return ResponseEntity.ok().body("Profissional deletado com sucesso");
+            return ResponseEntity.ok().body("Professional delete with success");
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

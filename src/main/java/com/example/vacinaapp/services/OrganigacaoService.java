@@ -1,7 +1,7 @@
 package com.example.vacinaapp.services;
 
-import com.example.vacinaapp.models.Organigacao;
-import com.example.vacinaapp.repositories.OrganigacaoRepository;
+import com.example.vacinaapp.models.Organization;
+import com.example.vacinaapp.repositories.OrganizationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class OrganigacaoService {
 
     @Autowired
-    private OrganigacaoRepository orgRepository;
+    private OrganizationRepository orgRepository;
 
 
-    public ResponseEntity salvaOrganigacao(Organigacao org) {
+    public ResponseEntity salvaOrganigacao(Organization org) {
         try {
             return ResponseEntity.ok().body(orgRepository.save(org));
         } catch (Exception ex) {
@@ -21,7 +21,7 @@ public class OrganigacaoService {
         }
     }
 
-    public ResponseEntity pegaOrganigacoes() {
+    public ResponseEntity findOrgs() {
         try {
             return ResponseEntity.ok().body(orgRepository.findAll());
         } catch (Exception ex) {
@@ -29,7 +29,7 @@ public class OrganigacaoService {
         }
     }
 
-    public ResponseEntity pegaOrganigacaoPorId(Integer id) {
+    public ResponseEntity findOrgById(Integer id) {
         try {
             return ResponseEntity.ok().body(orgRepository.findById(id));
         } catch (Exception ex) {
@@ -37,7 +37,7 @@ public class OrganigacaoService {
         }
     }
 
-    public ResponseEntity deletaOrg(Organigacao org) {
+    public ResponseEntity deleteOrg(Organization org) {
         try {
             orgRepository.delete(org);
             return ResponseEntity.ok().body("Organização deletada com sucesso!");
