@@ -1,8 +1,7 @@
 package com.example.vacinaapp.services;
 
-import com.example.vacinaapp.models.Paciente;
-import com.example.vacinaapp.models.Vacina;
-import com.example.vacinaapp.repositories.PacienteRepository;
+import com.example.vacinaapp.models.Patient;
+import com.example.vacinaapp.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,37 +10,37 @@ import org.springframework.stereotype.Service;
 public class PacienteService {
 
     @Autowired
-    private PacienteRepository pacienteRepository;
+    private PatientRepository patientRepository;
 
-    public ResponseEntity salvaPaciente(Paciente paciente) {
+    public ResponseEntity salvaPaciente(Patient patient) {
         try {
-            return ResponseEntity.ok().body(pacienteRepository.save(paciente));
+            return ResponseEntity.ok().body(patientRepository.save(patient));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity buscaTodosPacientes() {
+    public ResponseEntity findAllPatients() {
         try {
-            return ResponseEntity.ok().body(pacienteRepository.findAll());
+            return ResponseEntity.ok().body(patientRepository.findAll());
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity buscaPacientesPorId(Integer id) {
+    public ResponseEntity findPatientsById(Integer id) {
         try {
-            return ResponseEntity.ok().body(pacienteRepository.findById(id));
+            return ResponseEntity.ok().body(patientRepository.findById(id));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity deletaPaciente(Paciente paciente) {
+    public ResponseEntity deletePatient(Patient patient) {
         try {
-            pacienteRepository.delete(paciente);
+            patientRepository.delete(patient);
 
-            return ResponseEntity.ok().body("Paciente deletado com sucesso");
+            return ResponseEntity.ok().body("Patient deleted with success");
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

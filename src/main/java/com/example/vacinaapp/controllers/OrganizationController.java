@@ -1,6 +1,6 @@
 package com.example.vacinaapp.controllers;
 
-import com.example.vacinaapp.models.Organigacao;
+import com.example.vacinaapp.models.Organization;
 import com.example.vacinaapp.services.OrganigacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("org")
-public class OrganizacaoController {
+public class OrganizationController {
 
     @Autowired
     private OrganigacaoService orgService;
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity cadastraOrg(@RequestBody Organigacao org) {
+    @PostMapping("/register")
+    public ResponseEntity cadastraOrg(@RequestBody Organization org) {
         try {
             return orgService.salvaOrganigacao(org);
         } catch (Exception ex) {
@@ -22,8 +22,8 @@ public class OrganizacaoController {
         }
     }
 
-    @PutMapping("/cadastrar")
-    public ResponseEntity alterarOrg(@RequestBody Organigacao org) {
+    @PutMapping("/register")
+    public ResponseEntity alterarOrg(@RequestBody Organization org) {
         try {
             return orgService.salvaOrganigacao(org);
         } catch (Exception ex) {
@@ -31,23 +31,23 @@ public class OrganizacaoController {
         }
     }
 
-    @GetMapping("/busca-orgs")
+    @GetMapping("/find-orgs")
     public ResponseEntity buscaOrgs(@RequestParam(required = false) Integer id) {
         try {
             if (id != null) {
-                return orgService.pegaOrganigacaoPorId(id);
+                return orgService.findOrgById(id);
             }
-            return orgService.pegaOrganigacoes();
+            return orgService.findOrgs();
 
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @DeleteMapping("/deleta-org")
-    public ResponseEntity deletaOrg(@RequestBody Organigacao org) {
+    @DeleteMapping("/delete-org")
+    public ResponseEntity deleteOrg(@RequestBody Organization org) {
         try {
-            return orgService.deletaOrg(org);
+            return orgService.deleteOrg(org);
 
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
