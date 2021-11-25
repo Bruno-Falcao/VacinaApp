@@ -1,7 +1,9 @@
+server:
+  port: 8080
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/vacina_app
+    url: jdbc:mysql://localhost:port/scheme_name
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: admin
@@ -11,15 +13,15 @@ spring:
     hibernate.ddl-auto: update
     generate-ddl: true
     show-sql: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:
+    password:
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
 
-
-
-
-
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    hikari:
-#      jdbc-url: jdbc:mysql://localhost:3306/vacina_app
-#      username: root
-#      password: admin
