@@ -1,9 +1,7 @@
-server:
-  port: 8080
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:port/scheme_name
+    url: jdbc:mysql://localhost:port/schemeName
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: admin
