@@ -1,10 +1,10 @@
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/vacina_app
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: admin
+    url: jdbc:postgresql://ec2-18-210-159-154.compute-1.amazonaws.com:5432/d8f3m9qaeg2r0l
+    driver-class-name: org.postgresql.Driver
+    username: reenaohuitpvuh
+    password: 0cac72aa2da29739ab5c337c7f52ebf0b42059555a77e60644ad7cac2f773b12
     hikari:
       idle-timeout: 10000
   jpa:
