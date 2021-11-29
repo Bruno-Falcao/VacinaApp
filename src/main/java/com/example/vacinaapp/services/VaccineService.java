@@ -1,47 +1,47 @@
 package com.example.vacinaapp.services;
 
-import com.example.vacinaapp.models.Vacina;
-import com.example.vacinaapp.repositories.VacinaRepository;
+import com.example.vacinaapp.models.Vaccine;
+import com.example.vacinaapp.repositories.VaccinneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VacinaService {
+public class VaccineService {
 
     @Autowired
-    private VacinaRepository vacinaRepository;
+    private VaccinneRepository vaccinneRepository;
 
 
-    public ResponseEntity salvaVacina(Vacina vacina) {
+    public ResponseEntity saveVaccine(Vaccine vaccine) {
         try {
-            return ResponseEntity.ok().body(vacinaRepository.save(vacina));
+            return ResponseEntity.ok().body(vaccinneRepository.save(vaccine));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity buscaTodasVacinas() {
+    public ResponseEntity findAllVaccines() {
         try {
-            return ResponseEntity.ok().body(vacinaRepository.findAll());
+            return ResponseEntity.ok().body(vaccinneRepository.findAll());
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity buscaVacinaPorId(Integer id) {
+    public ResponseEntity findVaccineById(Integer id) {
         try {
-            return ResponseEntity.ok().body(vacinaRepository.findById(id));
+            return ResponseEntity.ok().body(vaccinneRepository.findById(id));
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    public ResponseEntity deletaVacina(Vacina vacina) {
+    public ResponseEntity deleteVaccine(Vaccine vaccine) {
         try {
-            vacinaRepository.delete(vacina);
+            vaccinneRepository.delete(vaccine);
 
-            return ResponseEntity.ok().body("Vacina deletada com sucesso");
+            return ResponseEntity.ok().body("vaccine deleted with success");
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }

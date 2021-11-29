@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
-@Entity(name = "vacina")
-public class Vacina {
+@Entity(name = "vaccine")
+public class Vaccine {
 
     @Id
     @GeneratedValue()
@@ -16,9 +16,9 @@ public class Vacina {
 
     private String nome;
 
-    private String lote;
+    private String batch;
 
-    private String marca;
+    private String brand;
 
-    private String fabricacao;
+    private String fabrication;
 }

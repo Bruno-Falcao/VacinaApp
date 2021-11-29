@@ -1,54 +1,53 @@
 package com.example.vacinaapp.controllers;
 
-import com.example.vacinaapp.models.Organigacao;
-import com.example.vacinaapp.models.Paciente;
+import com.example.vacinaapp.models.Patient;
 import com.example.vacinaapp.services.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("paciente")
-public class PacienteController {
+@RequestMapping("patient")
+public class PatientController {
 
     @Autowired
     private PacienteService pacienteService;
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity cadastraPaciente(@RequestBody Paciente paciente) {
+    @PostMapping("/register")
+    public ResponseEntity cadastraPaciente(@RequestBody Patient patient) {
         try {
-            return pacienteService.salvaPaciente(paciente);
+            return pacienteService.salvaPaciente(patient);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @PutMapping("/cadastrar")
-    public ResponseEntity alterarOrg(@RequestBody Paciente paciente) {
+    @PutMapping("/register")
+    public ResponseEntity alterarOrg(@RequestBody Patient patient) {
         try {
-            return pacienteService.salvaPaciente(paciente);
+            return pacienteService.salvaPaciente(patient);
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @GetMapping("/busca-paciente")
-    public ResponseEntity buscaPacientes(@RequestParam(required = false) Integer id) {
+    @GetMapping("/find-patient")
+    public ResponseEntity findPatients(@RequestParam(required = false) Integer id) {
         try {
             if (id != null) {
-                return pacienteService.buscaPacientesPorId(id);
+                return pacienteService.findPatientsById(id);
             }
-            return pacienteService.buscaTodosPacientes();
+            return pacienteService.findAllPatients();
 
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());
         }
     }
 
-    @DeleteMapping("/deleta-paciente")
-    public ResponseEntity deletaOrg(@RequestBody Paciente paciente) {
+    @DeleteMapping("/delete-paciente")
+    public ResponseEntity deletaOrg(@RequestBody Patient patient) {
         try {
-            return pacienteService.deletaPaciente(paciente);
+            return pacienteService.deletePatient(patient);
 
         } catch (Exception ex) {
             return ResponseEntity.badRequest().body(ex.getMessage());

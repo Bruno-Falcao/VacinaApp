@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
-@Entity(name = "organigacao")
-public class Organigacao {
+@Entity(name = "organization")
+public class Organization {
 
     @Id
     @GeneratedValue
@@ -17,8 +17,8 @@ public class Organigacao {
 
     private String cnpj;
 
-    @JsonProperty("nome_fantasia")
-    private String nomeFantasia;
+    @JsonProperty("fantasy-name")
+    private String fantasyName;
 
-    private String identificacao;
+    private String identification;
 }
